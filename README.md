@@ -4,7 +4,7 @@
 
 ## 安装
 
-`npm i -S react-animate-components`
+`npm i -S react-animate-skeleton`
 
 ## 组件介绍
 
