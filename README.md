@@ -21,5 +21,5 @@
 
 `widht`,`height`,`padding`参数为`number`或`string`，如`10`,`10px`，`padding`可以写为`10`,`10px`,`0 20px 20px 0`
 
-[效果预览]([https://blog.zhangyu1818.com/%E5%81%9A%E4%B8%80%E4%B8%AA%E5%8A%A8%E6%80%81%E7%9A%84%E9%AA%A8%E6%9E%B6%E5%B1%8F/](https://blog.zhangyu1818.com/做一个动态的骨架屏/))
+[效果预览](https://blog.zhangyu1818.com/%E5%81%9A%E4%B8%80%E4%B8%AA%E5%8A%A8%E6%80%81%E7%9A%84%E9%AA%A8%E6%9E%B6%E5%B1%8F/)
 
