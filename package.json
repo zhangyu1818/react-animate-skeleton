@@ -1,6 +1,6 @@
 {
   "name": "react-animate-skeleton",
-  "version": "1.0.0",
+  "version": "1.0.5",
   "description": "react skeleton",
   "main": "dist/index.js",
   "scripts": {
@@ -10,6 +10,10 @@
     "react",
     "skeleton"
   ],
+  "repository": {
+    "url": "https://github.com/zhangyu1818/react-animate-skeleton",
+    "type": "git"
+  },
   "author": "zhangyu1818",
   "license": "MIT",
   "dependencies": {
