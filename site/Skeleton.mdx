@@ -1,0 +1,28 @@
+---
+name: Skeleton
+menu: 组件
+order: 3
+---
+
+# `<Skeleton />`
+
+`<Skeleton />`控制的是骨架屏的动画效果
+
+```jsx
+<Skeleton width={500}>
+  <Section padding={0} gap={20} lines={2} lineSize={40} />
+  <Gap height={40} />
+</Skeleton>
+```
+
+## Props
+
+| 字段名            | 描述                  | 类型                                                         | 默认值                                                       |
+| ----------------- | --------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| className         | 自定义类名            | string                                                       | 无                                                           |
+| width             | 宽度                  | number ｜ string                                             | 100%                                                         |
+| animationDuration | 动画持续时间          | number                                                       | 2                                                            |
+| loadingKeyFrames  | 自定义的keyframes动画 | Keyframes                                                    | from {   background-position: 100% 200%; } to {   background-position: 100% 0; } |
+| animate           | 是否启动动画          | boolean                                                      | true                                                         |
+
+

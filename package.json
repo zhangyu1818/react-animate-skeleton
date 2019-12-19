@@ -1,10 +1,18 @@
 {
   "name": "react-animate-skeleton",
-  "version": "1.0.5",
+  "version": "2.0.0",
   "description": "react skeleton",
-  "main": "dist/index.js",
+  "main": "dist/index.esm.js",
+  "files": [
+    "dist",
+    "src",
+    "index.d.ts"
+  ],
+  "typings": "./dist/index.d.ts",
   "scripts": {
-    "build": "npx rollup -c"
+    "build": "father build",
+    "doc:dev": "father doc dev",
+    "doc:build": "father doc build"
   },
   "keywords": [
     "react",
@@ -16,18 +24,16 @@
   },
   "author": "zhangyu1818",
   "license": "MIT",
+  "sideEffects": false,
+  "peerDependencies": {
+    "react": "^16.0.0"
+  },
   "dependencies": {
-    "react": "^16.9.0",
-    "styled-components": "^4.3.2"
+    "@types/react": "^16.9.16",
+    "@types/styled-components": "^4.4.1",
+    "styled-components": "^4.4.1"
   },
   "devDependencies": {
-    "@babel/core": "^7.6.0",
-    "@babel/plugin-proposal-class-properties": "^7.5.5",
-    "@babel/preset-env": "^7.6.0",
-    "@babel/preset-react": "^7.0.0",
-    "rollup": "^1.21.4",
-    "rollup-plugin-babel": "^4.3.3",
-    "rollup-plugin-clear": "^2.0.7",
-    "rollup-plugin-node-resolve": "^5.2.0"
+    "father": "^2.29.1"
   }
 }

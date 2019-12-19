@@ -1,0 +1,26 @@
+---
+name: Image
+order: 8
+---
+
+import { Image, Section, SkeletonProvider, Skeleton } from "../dist/index.esm.js";
+
+# `<Image />`
+
+`<Image />`组件用来模拟图片区域
+
+```jsx
+<SkeletonProvider>
+  <Skeleton width={500}>
+    <Image height={200} padding={40} />
+    <Section padding={20} gap={20} lineSize={20} lines={4} />
+  </Skeleton>
+</SkeletonProvider>
+```
+
+<SkeletonProvider>
+  <Skeleton width={500}>
+    <Image height={200} padding={40} />
+    <Section padding={20} gap={20} lineSize={20} lines={4} />
+  </Skeleton>
+</SkeletonProvider>

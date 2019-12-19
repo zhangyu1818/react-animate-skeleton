@@ -1,0 +1,37 @@
+---
+name: Item
+order: 6
+---
+
+import { Item, Gap, Section, SkeletonProvider, Skeleton } from "../dist/index.esm.js";
+
+# `<Item />`
+
+`<Item />`就是一个单独的块，可以配合`<Gap />`使用
+
+```jsx
+<Skeleton width={200}>
+  <Item height={40} />
+  <Gap height={20} />
+  <Item height={40} />
+  <Section padding={20} gap={20} lineSize={20} lines={2} />
+</Skeleton>
+```
+
+<SkeletonProvider>
+  <Skeleton width={200}>
+    <Item height={40} />
+    <Gap height={20} />
+    <Item height={40} />
+    <Section padding={20} gap={20} lineSize={20} lines={2} />
+  </Skeleton>
+</SkeletonProvider>
+
+## Props
+
+| 字段名    | 描述             | 类型             | 默认值 |
+| --------- | ---------------- | ---------------- | ------ |
+| className | 自定义类名       | string           | 无     |
+| width     | 宽度             | string \| number | 无     |
+| height    | 高度             |string \| number | 必填    |
+

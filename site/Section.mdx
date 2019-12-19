@@ -1,0 +1,54 @@
+---
+name: Section
+order: 4
+---
+
+import { SkeletonProvider, Skeleton, Section } from "../dist/index.esm.js";
+
+# `<Section />`
+
+`<Section />`用于简单的排列，默认是竖着排列
+
+## 竖向排列
+
+**4行，每行高度40，间距20,内边距20**
+
+```jsx
+<Skeleton width={500}>
+  <Section padding={10} gap={20} lines={4} lineSize={40} />
+</Skeleton>
+```
+
+<SkeletonProvider>
+  <Skeleton width={500}>
+    <Section padding={20} gap={20} lines={4} lineSize={40} />
+  </Skeleton>
+</SkeletonProvider>
+
+## 横向排列
+
+**4个方块，每个宽高80，间距20，内边距20**
+
+```jsx
+<Skeleton width="max-content" animationDuration={1}>
+    <Section horizontal padding={20} gap={20} lines={4} lineSize={80} />
+</Skeleton>
+```
+<SkeletonProvider>
+  <Skeleton width="max-content" animationDuration={1}>
+    <Section horizontal padding={20} gap={20} lines={4} lineSize={80} />
+  </Skeleton>
+</SkeletonProvider>
+
+横向排列的时候，父组件`<Skeleton />`加上`width="max-content"`才能做到自动宽度
+
+## Props
+
+| 字段名     | 描述         | 类型             | 默认值 |
+| ---------- | ------------ | ---------------- | ------ |
+| className  | 自定义类名   | string           | 无     |
+| horizontal | 是否横向     | boolean          | false  |
+| lineSize   | 行的大小     | string \| number | 必填   |
+| gap        | 行间距       | string \| number | 必填   |
+| lines      | 行数         | number           | 必填   |
+| padding    | 边间距       | string \| number | 必填   |

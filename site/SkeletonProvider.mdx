@@ -1,0 +1,41 @@
+---
+name: SkeletonProvider
+menu: 组件
+order: 2
+---
+
+# `<SkeletonProvider />`
+
+骨架屏最外层需要包一个`<SkeletonProvider />`，因为骨架屏的配置使用了`styled-components`的`<ThemeProvider />`
+
+不同区块的骨架屏如果要设置不同颜色，可以使用不同的`<SkeletonProvider />`作为最外层
+
+例子
+
+```jsx
+const App = () => (
+  <SkeletonProvider>
+    <Skeleton>
+      <Section padding={0} gap={20} lines={6} lineSize={50} />
+    </Skeleton>
+  </SkeletonProvider>
+);
+```
+
+## Props
+
+theme => {
+    backgroundColor: string;
+    skeletonColor: string;
+    animationDuration: number;
+}
+
+```jsx
+<SkeletonProvider theme={{
+    backgroundColor:"#fff",
+    skeletonColor:"#f3f4f5",
+    animationDuration:2
+}}>
+    ...
+</SkeletonProvider>
+```

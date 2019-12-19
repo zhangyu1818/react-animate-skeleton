@@ -1,0 +1,43 @@
+---
+name: 使用
+route: /
+order: 1
+---
+
+# 介绍
+
+`react-animate-skeleton`是一个使用`styled-components`的简单骨架屏
+
+在布局简单的情况下适用
+
+自定义配置包括骨架屏颜色，动画持续时间
+
+## 安装
+
+```shell
+npm install --dev react-animate-skeleton
+```
+
+## 使用
+
+```jsx
+import { SkeletonProvider, Skeleton, Section } from "react-animate-skeleton";
+```
+
+import { SkeletonProvider, Skeleton, Section } from "../dist/index.esm.js";
+
+```jsx
+<SkeletonProvider>
+  <Skeleton width={400} animationDuration={4}>
+    <Section padding={0} gap={20} lines={6} lineSize={50} />
+  </Skeleton>
+</SkeletonProvider>
+```
+
+**效果如下**
+
+<SkeletonProvider>
+  <Skeleton width={400} animationDuration={4}>
+    <Section padding={0} gap={20} lines={6} lineSize={50} />
+  </Skeleton>
+</SkeletonProvider>
