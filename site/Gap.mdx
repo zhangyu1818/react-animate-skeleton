@@ -5,13 +5,48 @@ order: 7
 
 # `<Gap />`
 
+import {
+  SkeletonProvider,
+  Skeleton,
+  Horizontal,
+  Item,
+  Gap
+} from "../dist/index.esm.js";
+
 `<Gap />`用来增加间距
+
+通常情况下，固定宽高即可，如果在百分比布局的时候，可能需要高度随着宽度改变，可以使用`aspectRatio`
+
+```jsx
+<Skeleton width="20%">
+  <Horizontal>
+    <Item width="40%" aspectRatio={1} />
+    <Gap width="20%" aspectRatio={1} />
+    <Item width="40%" aspectRatio={1} />
+  </Horizontal>
+</Skeleton>
+```
+
+<div style={{resize:"horizontal",overflow:"auto",maxWidth:"50%",width:"30%",padding:40}}>
+    <SkeletonProvider>
+      <Skeleton>
+        <Horizontal>
+          <Item width="40%" aspectRatio={1} />
+          <Gap width="20%" aspectRatio={1} />
+          <Item width="40%" aspectRatio={1} />
+        </Horizontal>
+      </Skeleton>
+    </SkeletonProvider>
+</div>
+
+拖动小三角改变大小
 
 ## Props
 
-| 字段名    | 描述             | 类型             | 默认值 |
-| --------- | ---------------- | ---------------- | ------ |
-| className | 自定义类名       | string           | 无     |
-| width     | 宽度             | string \| number | 无     |
-| height    | string \| number | 必填             |        |
-
+| 字段名      | 描述                                           | 类型              | 默认值 |
+| ----------- | ---------------------------------------------- | ----------------- | ------ |
+| className   | 自定义类名                                     | string            | 无     |
+| width       | 宽度                                           | string \| number  | 无     |
+| height      | 高度 | string \| number                               |             无  |
+| aspectRatio | 宽高比，高度会根据比例设置(主要用于百分比布局) | number            | 无     |
+| flex        | 同弹性盒模型 flex 属性                         | string \| boolean | 无     |

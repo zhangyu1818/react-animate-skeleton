@@ -1,0 +1,69 @@
+---
+name: 例子
+order: 1
+---
+
+import {
+  SkeletonProvider,
+  Skeleton,
+  Horizontal,
+  Item,
+  Section,
+  Gap,Image
+} from "../dist/index.esm.js";
+
+# 例子
+
+### 列表信息
+
+```jsx
+<Skeleton>
+  <Horizontal>
+    <Item width={60} height={60} />
+    <Section lineSize={15} lines={2} padding="11px 40px 11px 8px" gap={8} flex />
+  </Horizontal>
+</Skeleton>
+```
+<div style={{ width: "300px" }}>
+<SkeletonProvider>
+  <Skeleton>
+    <Horizontal>
+      <Item width={60} height={60} />
+      <Section lineSize={15} lines={2} padding="11px 40px 11px 8px" gap={8} flex />
+    </Horizontal>
+  </Skeleton>
+</SkeletonProvider>
+</div>
+
+### 商品块
+
+```jsx
+<Skeleton width="max-content">
+  <Image width={160} aspectRatio={1} padding={0} />
+  <Gap height={10} />
+  <Section padding={0} gap={6} lineSize={14.5} lines={2} />
+</Skeleton>
+```
+
+<SkeletonProvider>
+  <Skeleton width="max-content">
+    <Image width={160} aspectRatio={1} padding={8} />
+    <Gap height={10} />
+    <Section padding={0} gap={6} lineSize={14.5} lines={2} />
+  </Skeleton>
+</SkeletonProvider>
+
+### 文字
+
+```jsx
+<Skeleton width={200}>
+  <Section padding={10} gap={10} lines={8} lineSize={20} />
+</Skeleton>
+```
+
+<SkeletonProvider>
+  <Skeleton width={200}>
+    <Section padding={10} gap={10} lines={8} lineSize={20} />
+  </Skeleton>
+</SkeletonProvider>
+
