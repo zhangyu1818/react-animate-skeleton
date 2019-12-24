@@ -2,12 +2,14 @@ import React from "react";
 import styled from "styled-components";
 import convert from "../../utils/convert";
 import Padding, { PaddingProps } from "../Padding";
+import { flex } from "../skeletonProps";
 
 interface SectionElementProps {
   horizontal?: boolean;
   lineSize: string | number;
   gap: string | number;
   lines: number;
+  flex?: flex;
 }
 
 export interface SectionProps extends SectionElementProps, PaddingProps {
@@ -32,14 +34,14 @@ const SectionElement = styled.div<SectionElementProps>`
       ${({ lineSize, gap }) =>
         `calc(${convert(lineSize)()} + ${convert(gap)()})`}
   );
-  height: ${({ horizontal, lineSize }) =>
+  padding-bottom: ${({ horizontal, lineSize }) =>
     horizontal ? convert(lineSize)() : null};
 `;
 
 const Section: React.FC<SectionProps> = props => {
-  const { padding, horizontal, ...resetProps } = props;
+  const { padding, horizontal, flex, ...resetProps } = props;
   return (
-    <Padding padding={padding}>
+    <Padding padding={padding} flex={flex}>
       <SectionElement horizontal={horizontal} {...resetProps} />
     </Padding>
   );

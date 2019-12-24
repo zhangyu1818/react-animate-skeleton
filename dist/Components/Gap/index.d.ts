@@ -1,11 +1,12 @@
 import React from "react";
 import { PickCSSProperty } from "../../utils/pickCSSProperties";
-interface GapElementProps {
-    className?: string;
-}
-export interface GapProps extends GapElementProps {
+import { flex } from "../skeletonProps";
+export interface GapProps {
     width?: PickCSSProperty<"width">;
-    height: PickCSSProperty<"height">;
+    height?: PickCSSProperty<"height">;
+    className?: string;
+    aspectRatio?: number;
+    flex?: flex;
 }
 declare const Gap: React.FC<GapProps>;
 export default Gap;

@@ -99,7 +99,7 @@ function _taggedTemplateLiteral(strings, raw) {
 }
 
 function _templateObject() {
-  var data = _taggedTemplateLiteral(["\n  background: ", ";\n"]);
+  var data = _taggedTemplateLiteral(["\n  background: ", ";\n  flex: ", ";\n"]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -110,20 +110,44 @@ function _templateObject() {
 var GapElement = styled.div(_templateObject(), function (_ref) {
   var theme = _ref.theme;
   return theme.backgroundColor;
+}, function (_ref2) {
+  var flex = _ref2.flex;
+  return typeof flex !== "undefined" ? typeof flex === "boolean" ? 1 : flex : "initial";
 });
 
-var Gap = function Gap(_ref2) {
-  var width = _ref2.width,
-      height = _ref2.height,
-      props = _objectWithoutProperties(_ref2, ["width", "height"]);
+var Gap = function Gap(_ref3) {
+  var width = _ref3.width,
+      height = _ref3.height,
+      aspectRatio = _ref3.aspectRatio,
+      props = _objectWithoutProperties(_ref3, ["width", "height", "aspectRatio"]);
 
+  var tempHeight = aspectRatio !== undefined ? {
+    paddingBottom: "".concat(aspectRatio * 100, "%")
+  } : {
+    height: height
+  };
   return React.createElement(GapElement, Object.assign({}, props, {
     style: {
-      width: width,
-      height: height
+      width: width
     }
+  }), React.createElement("div", {
+    style: tempHeight
   }));
 };
+
+function _templateObject$1() {
+  var data = _taggedTemplateLiteral(["\n  display: flex;\n  align-items: ", ";\n"]);
+
+  _templateObject$1 = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+var Horizontal = styled.div(_templateObject$1(), function (_ref) {
+  var alignItems = _ref.alignItems;
+  return alignItems;
+});
 
 var convert = function convert(value) {
   return function () {
@@ -132,25 +156,8 @@ var convert = function convert(value) {
   };
 };
 
-function _templateObject$1() {
-  var data = _taggedTemplateLiteral(["\n  border-width: ", ";\n  border-style: solid;\n  border-color: ", ";\n"]);
-
-  _templateObject$1 = function _templateObject() {
-    return data;
-  };
-
-  return data;
-}
-var Padding = styled.div(_templateObject$1(), function (_ref) {
-  var padding = _ref.padding;
-  return convert(padding)(0);
-}, function (_ref2) {
-  var theme = _ref2.theme;
-  return theme.backgroundColor;
-});
-
 function _templateObject$2() {
-  var data = _taggedTemplateLiteral(["\n  background: transparent;\n"]);
+  var data = _taggedTemplateLiteral(["\n  border-width: ", ";\n  border-style: solid;\n  border-color: ", ";\n  flex: ", ";\n"]);
 
   _templateObject$2 = function _templateObject() {
     return data;
@@ -158,19 +165,46 @@ function _templateObject$2() {
 
   return data;
 }
-var ItemElement = styled.div(_templateObject$2());
+var Padding = styled.div(_templateObject$2(), function (_ref) {
+  var padding = _ref.padding;
+  return convert(padding)(0);
+}, function (_ref2) {
+  var theme = _ref2.theme;
+  return theme.backgroundColor;
+}, function (_ref3) {
+  var flex = _ref3.flex;
+  return typeof flex !== "undefined" ? typeof flex === "boolean" ? 1 : flex : "initial";
+});
+
+function _templateObject$3() {
+  var data = _taggedTemplateLiteral(["\n  background: transparent;\n"]);
+
+  _templateObject$3 = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+var ItemElement = styled.div(_templateObject$3());
 
 var Item = function Item(_ref) {
   var width = _ref.width,
       height = _ref.height,
+      aspectRatio = _ref.aspectRatio,
       className = _ref.className;
+  var tempHeight = aspectRatio !== undefined ? {
+    paddingBottom: "".concat(aspectRatio * 100, "%")
+  } : {
+    height: height
+  };
   return React.createElement(ItemElement, {
     className: className,
     style: {
-      width: width,
-      height: height
+      width: width
     }
-  });
+  }, React.createElement("div", {
+    style: tempHeight
+  }));
 };
 
 var Image = function Image(_ref) {
@@ -182,16 +216,16 @@ var Image = function Image(_ref) {
   }, React.createElement(Item, Object.assign({}, restProps)));
 };
 
-function _templateObject$3() {
-  var data = _taggedTemplateLiteral(["\n  ", ": ", ";\n  background: repeating-linear-gradient(\n    to ", ",\n    transparent,\n    transparent ", ",\n    ", " 0,\n    ", "\n      ", "\n  );\n  height: ", ";\n"]);
+function _templateObject$4() {
+  var data = _taggedTemplateLiteral(["\n  ", ": ", ";\n  background: repeating-linear-gradient(\n    to ", ",\n    transparent,\n    transparent ", ",\n    ", " 0,\n    ", "\n      ", "\n  );\n  padding-bottom: ", ";\n"]);
 
-  _templateObject$3 = function _templateObject() {
+  _templateObject$4 = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var SectionElement = styled.div(_templateObject$3(), function (_ref) {
+var SectionElement = styled.div(_templateObject$4(), function (_ref) {
   var horizontal = _ref.horizontal;
   return horizontal ? "width" : "height";
 }, function (_ref2) {
@@ -224,10 +258,12 @@ var SectionElement = styled.div(_templateObject$3(), function (_ref) {
 var Section = function Section(props) {
   var padding = props.padding,
       horizontal = props.horizontal,
-      resetProps = _objectWithoutProperties(props, ["padding", "horizontal"]);
+      flex = props.flex,
+      resetProps = _objectWithoutProperties(props, ["padding", "horizontal", "flex"]);
 
   return React.createElement(Padding, {
-    padding: padding
+    padding: padding,
+    flex: flex
   }, React.createElement(SectionElement, Object.assign({
     horizontal: horizontal
   }, resetProps)));
@@ -243,16 +279,16 @@ function _templateObject2() {
   return data;
 }
 
-function _templateObject$4() {
+function _templateObject$5() {
   var data = _taggedTemplateLiteral(["\n  background: linear-gradient(\n    to bottom,\n    ", "\n  );\n  background-size: 200% 200%;\n  background-clip: content-box;\n  animation: ", "\n    ", "s\n    linear infinite;\n  ", ";\n  width: ", ";\n  opacity: 0.45;\n"]);
 
-  _templateObject$4 = function _templateObject() {
+  _templateObject$5 = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var SkeletonElement = styled.div(_templateObject$4(), function (_ref) {
+var SkeletonElement = styled.div(_templateObject$5(), function (_ref) {
   var _ref$theme = _ref.theme,
       backgroundColor = _ref$theme.backgroundColor,
       skeletonColor = _ref$theme.skeletonColor;
@@ -303,4 +339,4 @@ var SkeletonProvider = function SkeletonProvider(_ref) {
   }, children);
 };
 
-export { Gap, Image, Item, Padding, Section, Skeleton, SkeletonProvider };
+export { Gap, Horizontal, Image, Item, Padding, Section, Skeleton, SkeletonProvider };

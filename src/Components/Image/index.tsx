@@ -6,8 +6,9 @@ import { padding } from "../skeletonProps";
 
 interface ImageProps {
   width?: PickCSSProperty<"width">;
-  height: PickCSSProperty<"height">;
+  height?: PickCSSProperty<"height">;
   padding: padding;
+  aspectRatio?: number;
 }
 
 const Image: React.FC<ImageProps> = ({ padding, ...restProps }) => (

@@ -3,8 +3,9 @@ import { PickCSSProperty } from "../../utils/pickCSSProperties";
 import { padding } from "../skeletonProps";
 interface ImageProps {
     width?: PickCSSProperty<"width">;
-    height: PickCSSProperty<"height">;
+    height?: PickCSSProperty<"height">;
     padding: padding;
+    aspectRatio?: number;
 }
 declare const Image: React.FC<ImageProps>;
 export default Image;
